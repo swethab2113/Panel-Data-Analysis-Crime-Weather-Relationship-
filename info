@@ -63,3 +63,10 @@ Description
 		- Model selection: F-test for Pooled OLS vs. FE; Hausman test for FE vs RE
 		- Model validity/diagnostic checks: Test for heteroskedasticity, serial correlation, cross-section dependency
 		- Model re-estimation: Estimated model checked for residuals and normality
+3. output
+	- contains output files of the analysis for each category
+		- IPCPanelDataAnalysis: output for overall IPC crimes category
+		- CRAWPanelDataAnalysis: output for crimes against women category
+		- CyberPanelDataAnalysis: output for cyber crime category
+		- PropertyPanelDataAnalysis: output for property crime category
+		- ViolentPanelDataAnalysis: output for violent crime category
