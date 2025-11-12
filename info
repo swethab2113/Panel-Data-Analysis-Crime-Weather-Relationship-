@@ -1,0 +1,65 @@
+Panel Data Regression Analysis (Crime-Weather Relationship)
+
+Files:
+1. panel_data
+2. notebooks
+
+Description
+1. panel_data
+	- contains five .csv files: ipc_data, crimes_against_women_data, cyber_data, property_data, violent_data
+	- common variable description across .csv files:
+				* s.no.: Serial No.
+ 				* districts: Districts in Tamil Nadu (32 districts as per 2011 division)
+ 					1. Ariyalur		17. Ramanathapuram
+ 					2. Chennai		18. Salem
+ 					3. Coimbatore		19. Sivaganga
+ 					4. Cuddalore		20. Thanjavur
+ 					5. Dharmapuri		21. The Nilgiris
+ 					6. Dindigul		22. Theni
+ 					7. Erode		23. Thiruvallur
+ 					8. Kancheepuram		24. Thiruvarur
+ 					9. Kanniyakumari	25. Thoothukudi
+ 					10. Karur		26. Tiruchirappalli
+ 					11. Krishnagiri		27. Tirunelveli
+ 					12. Madurai		28. Tiruppur
+ 					13. Nagappattinam	29. Tiruvannamalai
+ 					14. Namakkal		30. Vellore
+ 					15. Perambalur		31. Viluppuram
+ 					16. Pudukkottai		32. Virudunagar
+ 				* year: Years from 2011 to 2022
+ 				* pop_in_lak: Population of the district (in lakhs) in a year
+ 				* avg_temp: Average temperature of a district over a year (measured in celsius unit)
+ 				* tot_rf: Total rainfall of a district in a year (measured in millimeter unit)
+
+	- ipc_data columns: s.no. districts, year, ipc_crimes, pop_in_lak, ipc_cr, avg_temp, tot_rf
+		 	- variable description:
+ 				* ipc_crimes: Number of IPC crimes in a district in a year
+  				* ipc_cr: IPC crime rate (IPC crimes per lakh population)
+
+	- crimes_against_women_data columns: s.no., districts, year, type, crimes_against_women, pop_in_lak, craw_cr, avg_temp, tot_rf
+ 		 	- variable description:
+ 				* crimes_against_women: Number of crimes against women in a district in a year
+ 				* craw_cr: Crimes against women crime rate (Crimes against women per lakh population)
+
+	- cyber_data columns: s.no., districts, year, type, cyber_crime, pop_in_lak, cyber_cr, avg_temp, tot_rf
+ 		 	- variable description:
+ 				* cyber_crimes: Number of cyber crimesin a district in a year
+ 				* cyber_cr: Cyber crime rate (Cyber crimes per lakh population)
+
+	- property_data columns: s.no., districts, year, type, property_crimes, pop_in_lak, property_cr, avg_temp, tot_rf
+ 		 	- variable description:
+ 				* property_crimes: Number of property crimes in a district in a year
+ 				* property_cr: Property crime rate (Property crimes per lakh population)
+
+	- violent_data columns:  s.no., districts, year, type, violent_crimes, pop_in_lak, violent_cr, avg_temp, tot_rf
+ 		 	- variable description:
+ 				* violent_crimes: Number of violent crimes in a district in a year
+ 				* craw_cr: Violent crime rate (Violent crimes per lakh population)
+2. notebooks
+	- contains the python code for analysis in Jupyter Notebooks
+	- dependent variable: crime rate (ipc_cr, craw_cr, cyber_cr, property_cr, violent_cr); independent variables: temperature (avg_temp) and rainfall (tot_rf)
+	- analysis process:
+		- Model estimation (models: Pooled OLS, Fixed Effects, Random Effects)
+		- Model selection: F-test for Pooled OLS vs. FE; Hausman test for FE vs RE
+		- Model validity/diagnostic checks: Test for heteroskedasticity, serial correlation, cross-section dependency
+		- Model re-estimation: Estimated model checked for residuals and normality
